@@ -1,0 +1,38 @@
+<div class="table-responsive">
+  <table
+    class="table table-striped table-dark table-hover table-bordered mt-3 me-3"
+  >
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">DNI</th>
+        <th scope="col">Fecha de nacimiento</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of clientes">
+        <th scope="row">{{ c.id }}</th>
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.dni }}</td>
+        <td>{{ c.fechaNacimiento | date : "dd/MM/yyyy" }}</td>
+        <td>
+          <button class=" btn btn-primary m-1" routerLink="/formulario/{{ c.id }}">Editar</button>
+          <button class="btn btn-danger" routerLink="/listado" (click)="borrar(c.id)">Borrar</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <button class="btn btn-primary" routerLink="/formulario">Añadir</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

@@ -1,0 +1,50 @@
+<form class="container">
+  <fieldset>
+    <legend class="mt-3">Cliente</legend>
+    <div class="mb-3">
+      <label for="id" class="form-label">Id</label>
+      <input
+        type="number"
+        readonly
+        [(ngModel)]="cliente.id"
+        id="id"
+        name="id"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input
+        type="text"
+        [(ngModel)]="cliente.nombre"
+        id="nombre"
+        name="nombre"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="dni" class="form-label">DNI</label>
+      <input
+        type="text"
+        [(ngModel)]="cliente.dni"
+        id="dni"
+        name="dni"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="fechaNacimiento" class="form-label"
+        >Fecha de nacimiento</label
+      >
+      <input
+        type="date"
+        [ngModel]="cliente.fechaNacimiento.toISOString().substring(0, 10)"
+        (ngModelChange)="cambioFecha($event)"
+        id="fechaNacimiento"
+        name="fechaNacimiento"
+        class="form-control"
+      />
+    </div>
+    <button (click)="aceptar()" class="btn btn-primary">Aceptar</button>
+  </fieldset>
+</form>
